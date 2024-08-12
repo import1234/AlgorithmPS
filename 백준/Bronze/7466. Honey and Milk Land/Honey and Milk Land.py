@@ -1,7 +1,4 @@
 import math
-f=lambda:sum(map(int,input().split()))
-f()
-t=0
-try:t+=f()**2;t+=f()**2
-except:1
-print(math.ceil(t**.5))
+f=lambda:sum(map(int,input().split()))**2;f()
+try:t=0;t+=f();t+=f();X
+except:print(math.ceil(t**.5))
