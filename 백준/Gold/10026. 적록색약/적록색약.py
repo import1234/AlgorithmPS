@@ -11,7 +11,6 @@ def f(a,b):
 for t in[l,k]:
     l=list(t)
     c=0
-    for x in range(n):
-        for y in range(n):
-            if l[x*n+y]!='X':f(x,y);c+=1
+    for x in range(n*n):
+        if l[x]!='X':f(x//n,x%n);c+=1
     print(c)
