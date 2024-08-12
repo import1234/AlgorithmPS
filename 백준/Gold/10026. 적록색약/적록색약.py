@@ -4,13 +4,12 @@ n=int(input())
 l=''
 for _ in range(n):l+=input()
 k=l.replace('R','G')
-def f(a,b):
-    t=l[a*n+b];l[a*n+b]='X'
-    for x,y in[[a-1,b],[a+1,b],[a,b-1],[a,b+1]]:
-        if 0<=x<n and 0<=y<n and l[x*n+y]==t:f(x,y)
+def f(a):
+ t=l[a];l[a]='X'
+ for x in[a-n,a+n,a-1*(a%n!=0),a+1*(a%n!=n-1)]:
+  if 0<=x<n*n and l[x]==t:f(x)
 for t in[l,k]:
-    l=list(t)
-    c=0
-    for x in range(n*n):
-        if l[x]!='X':f(x//n,x%n);c+=1
-    print(c)
+ l=list(t);c=0
+ for x in range(n*n):
+  if l[x]!='X':f(x);c+=1
+ print(c)
