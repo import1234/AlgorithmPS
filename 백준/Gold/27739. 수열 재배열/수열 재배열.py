@@ -3,16 +3,23 @@ orig=[*map(int,input().split())]
 result=[]
 for i in range(n-k+1):
     l=orig[:]
-    s=l[i:i+k]
-    s.sort()
-    for t in range(k):
-        if k!=0:s.insert(0,s.pop())
+    t=sorted(l[i:i+k])
+    S=[t]
+    if i==0:S.append(t)
+    else:
+        for x in range(k):
+            if t[x]>l[i-1]:break
+        S.append(t[x:]+t[:x])
+    if i==n-k:S.append(t)
+    else:
+        for x in range(k):
+            if t[x]>l[i+k]:break
+        S.append(t[x:]+t[:x])
+    for s in S:
         for j in range(k):l[i+j]=s[j]
-        #print(*l)
-        dp=[1]*n
+        c=M=1
         for x in range(1,n):
-            if l[x]>l[x-1]:dp[x]=dp[x-1]+1
-        result+=[max(dp)]
-        #print(*dp)
-        #print()
+            c=c+1 if l[x]>l[x-1] else 1
+            if c>M:M=c
+        result+=[M]
 print(max(result))
