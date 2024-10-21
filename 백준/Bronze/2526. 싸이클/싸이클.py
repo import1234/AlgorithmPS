@@ -1,17 +1,9 @@
 n,p=map(int,input().split())
-v={n}
+l=[n]
 prev=n
-while 1:
+for x in range(1,1000):
     now=prev*n%p
-    if now in v:break
-    v.add(now)
+    if now in l:break
+    l.append(now)
     prev=now
-
-loop=prev=now
-count=0
-while 1:
-    count+=1
-    now=prev*n%p
-    if now==loop:break
-    prev=now
-print(count)
+print(x-l.index(now))
