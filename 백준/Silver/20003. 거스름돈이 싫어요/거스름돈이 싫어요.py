@@ -1,9 +1,7 @@
-from math import gcd,lcm
+from math import gcd, lcm
 p=[];q=[]
 for x in' '*int(input()):
     a,b=map(int,input().split())
     g=gcd(a,b)
-    p.append(a//g)
-    q.append(b//g)
-
+    p+=[a//g];q+=[b//g]
 print(gcd(*p),lcm(*q))
