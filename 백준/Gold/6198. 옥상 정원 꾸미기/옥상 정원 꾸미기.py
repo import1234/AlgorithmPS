@@ -1,10 +1,7 @@
 import heapq
-n=int(input())
-h=[]
-a=0
-for x in range(n):
-    t=int(input())
-    while h and h[0]<=t:heapq.heappop(h)
+a=0;h=[]
+for x in[*map(int,open(0).read().split())][1:]:
+    while h and h[0]<=x:heapq.heappop(h)
     a+=len(h)
-    heapq.heappush(h,t)
+    heapq.heappush(h,x)
 print(a)
