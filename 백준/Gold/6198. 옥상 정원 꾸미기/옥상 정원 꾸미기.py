@@ -1,13 +1,10 @@
 import heapq
 n=int(input())
-heap=[]
+h=[]
 a=0
 for x in range(n):
     t=int(input())
-    if heap:
-        if heap[0]<=t:
-            while heap and heap[0]<=t:
-                heapq.heappop(heap)
-    heapq.heappush(heap,t)
-    a+=len(heap)-1
+    while h and h[0]<=t:heapq.heappop(h)
+    a+=len(h)
+    heapq.heappush(h,t)
 print(a)
