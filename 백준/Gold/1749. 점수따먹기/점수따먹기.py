@@ -6,8 +6,8 @@ def f(l):
     return max([a:=max(x,a+x) for x in l])
 
 a=[]
-for x in range(len(l)):
-    t=[0]*len(l[0])
+for x in range(m):
+    t=[0]*n
     for y in l[x:]:
         t=[sum(z) for z in zip(t,y)]
         a.append(f(t))
