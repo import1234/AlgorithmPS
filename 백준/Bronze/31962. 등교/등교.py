@@ -1,7 +1,2 @@
-f=lambda:map(int,input().split())
-r=-1
-n,x=f()
-for _ in' '*n:
-    s,t=f()
-    if s+t<=x:r=max(r,s)
-print(r)
+(n,x),*l=[map(int,i.split())for i in open(0)]
+print(max(s if s+t<=x else-1for s,t in l))
