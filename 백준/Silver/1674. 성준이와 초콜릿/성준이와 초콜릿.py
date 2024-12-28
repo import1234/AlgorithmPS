@@ -22,4 +22,4 @@ for T in sorted(q):
     for t,n in cof:
         if T>=t:
             r+=max(2*n-(T-t)**2/79,0)
-    print(T,round(max(r,1)+10**-8,1))
+    print(T,round(max(r,1)+1e-6,1))
