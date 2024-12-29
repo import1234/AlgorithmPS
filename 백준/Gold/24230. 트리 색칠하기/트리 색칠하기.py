@@ -1,23 +1,24 @@
-from collections import defaultdict
-import sys
-sys.setrecursionlimit(200000)
-
-def dfs(p, now):
-    global c
-    for x in d[now]:
-        if x!=p:
-            if C[now]!=C[x]:c+=1
-            dfs(now,x)
-
+from collections import defaultdict as dd
 n=int(input())
-C=[0]+list(map(int,input().split()))
-d=defaultdict(list)
+C=[0]+[*map(int,input().split())]
 
-for x in' '*(n-1):
+d=dd(list)
+for x in range(n-1):
     a,b=map(int,input().split())
     d[a].append(b)
     d[b].append(a)
 
-c=int(C[1]!=0)
-dfs(0,1)
-print(c)
+t={(1,C[1])}
+v={1}
+count=int(C[1]!=0)
+while q:=t:
+    t=set()
+    for x,c in q:
+        if d.get(x):
+            for y in d[x]:
+                if y in v:continue
+                count+=C[y]!=c
+                t.add((y,C[y]))
+                v.add(y)
+
+print(count)
