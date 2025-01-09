@@ -6,7 +6,6 @@ for _ in ' '*m:
     a,b=f()
     d.setdefault(a,[]).append(b)
     d.setdefault(b,[]).append(a)
-
 for x in range(1,n+1):
     if l[x]:continue
     q=[x];l[x]=1
