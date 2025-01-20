@@ -10,21 +10,20 @@ for x in' '*m:
     d[b][a]=min(d[b].get(a,inf),c)
 
 s={1} #시작 노드: 1
-heap=[(d[1][x],1,x) for x in d[1].keys()]
+heap=[(d[1][x],x) for x in d[1].keys()]
 heapq.heapify(heap)
 mst=[]
 while len(s)<n:
-    c,a,b=heapq.heappop(heap)
+    c,b=heapq.heappop(heap)
     
-    if a in s and b in s:continue
-    mst.append((c,a,b))
-    t=b if a in s else a
-    s.add(t)
+    if b in s:continue
+    mst.append((c,b))
+    s.add(b)
     
-    for x in d[t].keys():
+    for x in d[b].keys():
         if x in s:continue #중복 노드 제거
-        heapq.heappush(heap,(d[t][x],t,x)) #가중치, 시작노드, 끝노드
+        heapq.heappush(heap,(d[b][x],x)) #가중치, 끝노드
 
 mst.sort()
 mst.pop()
-print(sum(x[0] for x in mst))
+print(sum(x[0]for x in mst))
