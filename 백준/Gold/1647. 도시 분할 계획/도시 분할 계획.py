@@ -1,6 +1,6 @@
-import heapq
+import heapq, sys
 from collections import defaultdict as dd
-f=lambda:map(int,input().split())
+f=lambda:map(int,sys.stdin.readline().split())
 n,m=f()
 d=dd(dict)
 inf=float('inf')
