@@ -1,5 +1,3 @@
-import sys
-sys.setrecursionlimit(10**4)
 n=int(input())
 v=set(range(1,n+1))
 d={}
