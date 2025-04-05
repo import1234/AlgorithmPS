@@ -15,30 +15,27 @@ for x in range(m):
         elif t[y]==4:q.append((x,y))
 if yes==0:print(-1);exit()
 
-v=set(man)
 while man:
     for _ in range(len(man)):
         x,y=man.popleft()
-        l[x][y]=3
         if k>0:
             for a,b in [(0,1),(0,-2),(1,1),(-2,0)]:
                 x+=a;y+=b
-                if 0<=x<m and 0<=y<n and (x,y)not in v:
+                if 0<=x<m and 0<=y<n and l[x][y]!=3:
                     man.append((x,y))
-                    v.add((x,y))
+                    l[x][y]=3
     k-=1
 
 c=0
-v=set(q)
 while q:
     for _ in range(len(q)):
         x,y=q.popleft()
         for a,b in [(0,1),(0,-2),(1,1),(-2,0)]:
             x+=a;y+=b
-            if 0<=x<m and 0<=y<n and l[x][y]in[0,2] and (x,y)not in v:
+            if 0<=x<m and 0<=y<n and l[x][y]in[0,2]:
                 if l[x][y]==2:print(c+1);exit()
                 q.append((x,y))
-                v.add((x,y))
+                l[x][y]=1
     c+=1
 
 print(-1)
