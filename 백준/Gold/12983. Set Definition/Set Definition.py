@@ -1,23 +1,14 @@
-import heapq
+from collections import deque as d
 
-dp=[0]*(1+10**7)
-dp[0]=1
-h1=[1]
-h2=[1]
+l=[1]
+d1=d([1])
+d2=d([1])
 
-for x in range(10**7):
-    c1=2*h1[0]+1
-    c2=3*h2[0]+1
-    c=min(c1,c2)
-    if c1<c2:
-        heapq.heappop(h1)
-    elif c2<c1:
-        heapq.heappop(h2)
-    if c1==c2:
-        heapq.heappop(h1)
-        heapq.heappop(h2)
-    heapq.heappush(h1,c)
-    heapq.heappush(h2,c)
-    dp[1+x]=c
+for _ in range(10**7):
+    c1=2*d1[0]+1
+    c2=3*d2[0]+1
+    if c1<=c2:d1.popleft()
+    if c2<=c1:d2.popleft()
+    for x in[d1,d2,l]:x.append(min(c1,c2))
 
-for x in' '*int(input()):print(dp[int(input())-1])
+for x in' '*int(input()):print(l[int(input())-1])
