@@ -1,6 +1,5 @@
 from math import log,pi
 n=log(int(input()))
-for x in range(1,1000000):
-    if abs(x*log(x)-x-n+1/2*log(2*pi*x))<.1:
-        print(x)
-        exit()
+x=1
+while.1<abs(x*log(x)-x+1/2*log(2*pi*x)-n):x+=1
+print(x)
