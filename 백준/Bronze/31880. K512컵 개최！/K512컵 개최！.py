@@ -1,0 +1,5 @@
+f=lambda:map(int,input().split())
+n,m=f()
+t=sum(f())
+for x in f():t*=max(x,1)
+print(t)
